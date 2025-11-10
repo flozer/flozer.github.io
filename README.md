@@ -1,84 +1,50 @@
-<!-- markdownlint-disable-next-line -->
-<div align="center">
+# Lozer Labs (Fernando Lozer)
 
-  <!-- markdownlint-disable-next-line -->
-  # Chirpy Jekyll Theme
+[![Blog](https://img.shields.io/badge/Live_Site-evaluationcontext.github.io-teal?style=for-the-badge&logo=github&logoColor=white)](https://flozer.github.io/)
 
-  A minimal, responsive, and feature-rich Jekyll theme for technical writing.
+A technical blog focused on the Microsoft BI stack, featuring experiments, insights, and deep dives into Power BI, Microsoft Fabric, DAX, and data visualization techniques.
 
-  [![CI](https://img.shields.io/github/actions/workflow/status/cotes2020/jekyll-theme-chirpy/ci.yml?logo=github)][ci]&nbsp;
-  [![Codacy Badge](https://img.shields.io/codacy/grade/4e556876a3c54d5e8f2d2857c4f43894?logo=codacy)][codacy]&nbsp;
-  [![GitHub license](https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy?color=goldenrod)][license]&nbsp;
-  [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy?&logo=RubyGems&logoColor=ghostwhite&label=gem&color=orange)][gem]&nbsp;
-  [![Open in Dev Containers](https://img.shields.io/badge/Dev_Containers-Open-deepskyblue?logo=linuxcontainers)][open-container]
+## About
 
-  [**Live Demo** →][demo]
+This blog is written by **Fernando Lozer**, a Business Intelligence specialist and Microsoft Data Platform MCT focusing on Power BI and Microsoft Fabric. Fernando shares practical experiences, technical experiments, and insights from working with the Microsoft BI stack.
 
-  [![Devices Mockup](https://chirpy-img.netlify.app/commons/devices-mockup.png)][demo]
+### Community Involvement
 
-</div>
+- 🏆 **Microsoft MCT** - Data Platform (Power BI)
 
-## Features
+## Content
 
-- Dark Theme
-- Localized UI language
-- Pinned Posts on Home Page
-- Hierarchical Categories
-- Trending Tags
-- Table of Contents
-- Last Modified Date
-- Syntax Highlighting
-- Mathematical Expressions
-- Mermaid Diagrams & Flowcharts
-- Dark Mode Images
-- Embed Media
-- Comment Systems
-- Built-in Search
-- Atom Feeds
-- PWA
-- Web Analytics
-- SEO & Performance Optimization
+### Blog Posts
 
-## Documentation
+The blog covers a wide range of topics including:
 
-To learn how to use, develop, and upgrade the project, please refer to the [Wiki][wiki].
+- **Power BI Development**: PBIP, Git integration, deployment strategies
+- **DAX & Data Modeling**: User-defined functions, calculations, optimization
+- **Visualizations**: SVG graphics, Vega/Vega-Lite charts, custom visuals
+- **Microsoft Fabric**: Real-time intelligence, KQL, translytical workflows
+- **Advanced Techniques**: Graph visualizations, query plan analysis, automation
 
-## Contributing
+### Presentations
 
-Contributions (_pull requests_, _issues_, and _discussions_) are what make the open-source community such an amazing place
-to learn, inspire, and create. Any contributions you make are greatly appreciated.
-For details, see the "[Contributing Guidelines][contribute-guide]".
+Resources and recordings from presentations at various user groups and conferences:
 
-## Credits
+[![View Presentations](https://img.shields.io/badge/View_Presentations-evaluationcontext.github.io/presentations-pink?style=for-the-badge&logo=presentation&logoColor=white)](https://evaluationcontext.github.io/presentations/)
 
-### Contributors
+### Projects
 
-Thanks to [all the contributors][contributors] involved in the development of the project!
+#### DaxLib Libraries
 
-[![all-contributors](https://contrib.rocks/image?repo=cotes2020/jekyll-theme-chirpy&columns=16)][contributors]
-<sub> — Made with [contrib.rocks](https://contrib.rocks)</sub>
+Open-source DAX user-defined function libraries distributed via [daxlib.org](https://daxlib.org/):
 
-### Third-Party Assets
+[![EvaluationContext.Colour](https://img.shields.io/badge/EvaluationContext.Colour-Hex_Colour_Manipulation-009688?style=for-the-badge&logo=github&logoColor=white)](https://github.com/EvaluationContext/EvaluationContext.Colour)
 
-This project is built on the [Jekyll][jekyllrb] ecosystem and some [great libraries][lib], and is developed using [VS Code][vscode] as well as tools provided by [JetBrains][jetbrains] under a non-commercial open-source software license.
+[![DaxLib.SVG](https://img.shields.io/badge/DaxLib.SVG-Create_SVG_Visuals-009688?style=for-the-badge&logo=github&logoColor=white)](https://github.com/daxlib/dev-daxlib-svg)
 
-The avatar and favicon for the project's website are from [ClipartMAX][clipartmax].
+## Connect
 
-## License
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Jake_Duddy-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jakeduddy/)
+[![GitHub](https://img.shields.io/badge/GitHub-EvaluationContext-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/EvaluationContext)
+[![Microsoft Fabric Community](https://img.shields.io/badge/Fabric_Community-Super_User-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://community.fabric.microsoft.com/t5/user/viewprofilepage/user-id/1231947)
+[![MVP Profile](https://img.shields.io/badge/Microsoft_MVP-Data_Platform-5E5E5E?style=for-the-badge&logo=microsoft&logoColor=white)](https://mvp.microsoft.com/en-US/MVP/profile/83f59bc7-9ff2-46e3-a9c9-30c97cad847f)
 
-This project is published under [MIT License][license].
-
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[ci]: https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml?query=event%3Apush+branch%3Amaster
-[codacy]: https://app.codacy.com/gh/cotes2020/jekyll-theme-chirpy/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
-[license]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE
-[open-container]: https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/cotes2020/jekyll-theme-chirpy
-[jekyllrb]: https://jekyllrb.com/
-[clipartmax]: https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/
-[demo]: https://cotes2020.github.io/chirpy-demo/
-[wiki]: https://github.com/cotes2020/jekyll-theme-chirpy/wiki
-[contribute-guide]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/docs/CONTRIBUTING.md
-[contributors]: https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors
-[lib]: https://github.com/cotes2020/chirpy-static-assets
-[vscode]: https://code.visualstudio.com/
-[jetbrains]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
+[![Built with Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?style=for-the-badge&logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/)
