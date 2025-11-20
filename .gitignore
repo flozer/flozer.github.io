@@ -28,3 +28,5 @@ assets/js/dist
 
 # Personal documentation (not for deployment)
 docs/
+
+.claude/*
