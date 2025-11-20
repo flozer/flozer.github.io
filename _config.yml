@@ -6,20 +6,20 @@ theme: jekyll-theme-chirpy
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
-lang: en
+lang: pt-BR
 
 # Change to your timezone › https://zones.arilyn.cc
-timezone: America/New_York
+timezone: America/Sao_Paulo
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Flozer's Blog # the main title
+title: Fernando Lozer - Blog # the main title
 
-tagline: My personal technical blog # it will display as the subtitle
+tagline: Tecnologia | Dados | IA # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  A personal technical blog powered by Jekyll and Chirpy theme.
+  Blog para compartilhar conhecimento sobre dados, ia, tecnologia em geral.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -34,15 +34,15 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: Flozer
-  email: # change to your email address if you want to display it
+  name: Fernando Lozer
+  email: fernandolozer@live.com # change to your email address if you want to display it
   links:
     # The first element serves as the copyright owner's link
     - https://github.com/flozer # change to your GitHub homepage
     # Uncomment below to add more social links
     # - https://twitter.com/username
     # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - https://www.linkedin.com/in/fernandolozer
 
 # Site Verification Settings
 webmaster_verifications:
@@ -69,7 +69,7 @@ analytics:
     id: # fill in your Matomo ID
     domain: # fill in your Matomo domain
   cloudflare:
-    id: # fill in your Cloudflare Web Analytics token
+    id: f5eb5550f62e400891b5d8a0ef4e7a20
   fathom:
     id: # fill in your Fathom Site ID
 
