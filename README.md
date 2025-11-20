@@ -1,51 +1,51 @@
-# Flozer's Personal Blog
+# Blog Pessoal do Flozer
 
 ![Jekyll](https://img.shields.io/badge/Jekyll-CC0000?style=flat&logo=jekyll&logoColor=white)
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=flat&logo=github&logoColor=white)
 ![Chirpy Theme](https://img.shields.io/badge/Theme-Chirpy-blue)
 
-Personal technical blog built with Jekyll and the Chirpy theme.
+Blog técnico pessoal construído com Jekyll e o tema Chirpy.
 
-## 🌐 Live Site
+## 🌐 Site ao Vivo
 
-Visit: **[https://flozer.github.io](https://flozer.github.io)**
+Visite: **[https://flozer.github.io](https://flozer.github.io)**
 
-## 📝 About
+## 📝 Sobre
 
-This repository powers my personal blog where I share:
-- Technical tutorials and guides
-- Code solutions and best practices
-- Learning notes and experiments
-- Project showcases
+Este repositório alimenta meu blog pessoal onde compartilho:
+- Tutoriais e guias técnicos
+- Soluções de código e boas práticas
+- Anotações de aprendizado e experimentos
+- Projetos pessoais
 
-## 🛠️ Built With
+## 🛠️ Construído Com
 
-- **Jekyll** - Static site generator
-- **Chirpy Theme** - Feature-rich Jekyll theme
-- **GitHub Pages** - Hosting
-- **GitHub Actions** - Automated deployment
+- **Jekyll** - Gerador de sites estáticos
+- **Chirpy Theme** - Tema Jekyll cheio de recursos
+- **GitHub Pages** - Hospedagem
+- **GitHub Actions** - Deploy automatizado
 
-## 🚀 Features
+## 🚀 Recursos
 
-- ✨ Dark/Light mode toggle
-- 📱 Fully responsive design
-- 🔍 Built-in search functionality
-- 💬 Comments support (configurable)
-- 📊 Analytics integration
-- 🎨 Syntax highlighting
-- 📖 Table of contents
-- 🏷️ Category and tag organization
-- 📱 PWA support (installable)
+- ✨ Alternância modo escuro/claro
+- 📱 Design totalmente responsivo
+- 🔍 Funcionalidade de busca integrada
+- 💬 Suporte a comentários (configurável)
+- 📊 Integração com analytics
+- 🎨 Destaque de sintaxe
+- 📖 Índice automático
+- 🏷️ Organização por categorias e tags
+- 📱 Suporte PWA (instalável)
 
-## 📄 License
+## 📄 Licença
 
-Content: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-Code: MIT
+Conteúdo: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+Código: MIT
 
-## 🤝 Contributing
+## 🤝 Contribuindo
 
-Found a typo or issue? Feel free to open an issue or submit a pull request!
+Encontrou um erro ou tem uma sugestão? Sinta-se à vontade para abrir uma issue ou enviar um pull request!
 
 ---
 
-**Theme**: [Jekyll Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) by [@cotes2020](https://github.com/cotes2020)
+**Tema**: [Jekyll Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) por [@cotes2020](https://github.com/cotes2020)

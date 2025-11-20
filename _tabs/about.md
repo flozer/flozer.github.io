@@ -4,48 +4,48 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-## Hi there! 👋
+## Olá! 👋
 
-Welcome to my personal blog where I share knowledge, tutorials, and insights about software development, technology, and continuous learning.
+Bem-vindo ao meu blog pessoal onde compartilho conhecimento, tutoriais e insights sobre desenvolvimento de software, tecnologia e aprendizado contínuo.
 
-## About This Blog
+## Sobre este blog
 
-This space is dedicated to documenting my journey in tech, sharing solutions to problems I've encountered, and contributing to the developer community. I believe in learning by doing and sharing by teaching.
+Este espaço é dedicado a documentar minha jornada na área de tecnologia, compartilhar soluções para problemas que encontrei e contribuir com a comunidade de desenvolvedores. Acredito que a melhor forma de aprender é fazendo e a melhor forma de compartilhar é ensinando.
 
-### What You'll Find Here
+### O que você vai encontrar aqui
 
-- **Technical Tutorials**: Step-by-step guides and how-tos
-- **Code Solutions**: Practical solutions to real-world problems
-- **Learning Notes**: Things I'm discovering and experimenting with
-- **Best Practices**: Tips and patterns I've found useful
-- **Project Showcases**: Personal projects and experiments
+- **Tutoriais Técnicos**: Guias passo a passo e how-tos
+- **Soluções de Código**: Soluções práticas para problemas do dia a dia
+- **Anotações de Aprendizado**: Coisas que estou descobrindo e experimentando
+- **Boas Práticas**: Dicas e padrões que considero úteis
+- **Projetos**: Projetos pessoais e experimentos
 
-## Topics I Cover
+## Tópicos que abordo
 
-- Software Development
-- Web Technologies
-- DevOps & Automation
-- Programming Languages
-- Tools & Productivity
-- Tech Industry Insights
+- Desenvolvimento de Software
+- Tecnologias Web
+- DevOps & Automação
+- Linguagens de Programação
+- Ferramentas & Produtividade
+- Insights da Indústria Tech
 
-## Get In Touch
+## Entre em contato
 
-Feel free to reach out if you have questions, suggestions, or just want to connect!
+Sinta-se à vontade para entrar em contato se tiver dúvidas, sugestões ou só quiser conversar!
 
 - **GitHub**: [github.com/flozer](https://github.com/flozer)
-- **Email**: Contact me via GitHub
+- **Email**: Entre em contato via GitHub
 
-## About This Site
+## Sobre este site
 
-This blog is built with:
-- **Jekyll** - Static site generator
-- **Chirpy Theme** - Beautiful, feature-rich Jekyll theme
-- **GitHub Pages** - Free hosting
-- **Markdown** - Simple content writing
+Este blog foi construído com:
+- **Jekyll** - Gerador de sites estáticos
+- **Chirpy Theme** - Tema Jekyll bonito e cheio de recursos
+- **GitHub Pages** - Hospedagem gratuita
+- **Markdown** - Escrita simples de conteúdo
 
-Check out the [source code](https://github.com/flozer/flozer.github.io) to see how it's built!
+Confira o [código-fonte](https://github.com/flozer/flozer.github.io) para ver como tudo funciona!
 
 ---
 
-*Thanks for visiting! I hope you find something useful here.*
+*Obrigado pela visita! Espero que encontre algo útil por aqui.*
