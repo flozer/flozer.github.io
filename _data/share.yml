@@ -14,11 +14,13 @@ platforms:
     icon: "fab fa-telegram"
     link: "https://t.me/share/url?url=URL&text=TITLE"
 
-  # Uncomment below if you need to.
-  #
-  # - type: Linkedin
-  #   icon: "fab fa-linkedin"
-  #   link: "https://www.linkedin.com/feed/?shareActive=true&shareUrl=URL"
+  - type: LinkedIn
+    icon: "fab fa-linkedin"
+    link: "https://www.linkedin.com/feed/?shareActive=true&shareUrl=URL"
+
+  - type: WhatsApp
+    icon: "fab fa-whatsapp"
+    link: "https://wa.me/?text=TITLE%20URL"
   #
   # - type: Weibo
   #   icon: "fab fa-weibo"
