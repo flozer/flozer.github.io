@@ -1,4 +1,4 @@
-# Blog Pessoal do Flozer
+# Fernando Lozer - Personal Blog
 
 ![Jekyll](https://img.shields.io/badge/Jekyll-CC0000?style=flat&logo=jekyll&logoColor=white)
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=flat&logo=github&logoColor=white)

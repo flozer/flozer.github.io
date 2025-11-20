@@ -4,7 +4,7 @@ date: 2020-06-22 10:00:00 -0300
 categories: [Power BI, DAX]
 tags: [powerbi, dax, atalhos, produtividade, tutorial]
 image:
-  path: https://media.licdn.com/dms/image/v2/C4D12AQFInLBc9iwrYQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1592824235106
+  path: /assets/2020-06-22-atalhos-uteis-barra-formulas-dax-powerbi/0-banner.jpg
   alt: "Barra de fórmulas DAX no Power BI Desktop"
 ---
 
