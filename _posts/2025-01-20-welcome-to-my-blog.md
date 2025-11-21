@@ -11,36 +11,53 @@ image:
 
 ## Bem-vindo! 🎉
 
-Estou animado para lançar este blog técnico onde vou compartilhar conhecimento, tutoriais e insights da minha jornada no desenvolvimento de software e tecnologia.
+Estou animado para lançar este blog técnico onde vou compartilhar conhecimento, tutoriais e insights da minha jornada em dados, analytics e inteligência artificial.
+
+## Sobre mim
+
+Sou Analytics Engineer com mais de 5 anos de experiência em Business Intelligence e Análise de Dados, especializado no ecossistema Microsoft. Atualmente, trabalho com arquitetura e desenvolvimento de soluções de dados e IA, gerenciando o ciclo completo de dados usando Microsoft Fabric e liderando o desenvolvimento de relatórios estratégicos em Power BI.
+
+Sou Microsoft Certified Trainer (MCT) qualificado para ministrar treinamentos oficiais e especializados da Microsoft, e possuo diversas certificações que fundamentam minha expertise técnica:
+
+- **Microsoft Certified Trainer (MCT)**
+- **DP-600**: Fabric Analytics Engineer Associate
+- **DP-700**: Fabric Data Engineer Associate
+- **PL-300**: Power BI Data Analyst Associate
+- **DP-900**: Azure Data Fundamentals
+- **PL-900**: Power Platform Fundamentals
+- **GH-100**: GitHub Administration
+
+Minha trajetória profissional me proporcionou experiências variadas: desde a gestão de infraestrutura de TI e data centers, passando pela implementação e administração de ambientes Power BI Premium/Embedded e Fabric, até o desenvolvimento de soluções inovadoras de dados e IA para suporte à tomada de decisão estratégica.
 
 ## Sobre o que é este blog
 
-Este é meu espaço para:
+Este é meu espaço para compartilhar conhecimento sobre o universo de dados, analytics e IA. Aqui você vai encontrar:
 
-- **Documentar** soluções para problemas que resolvi
-- **Compartilhar** tutoriais e guias que podem ajudar outras pessoas
-- **Explorar** novas tecnologias e ferramentas
-- **Refletir** sobre boas práticas e lições aprendidas
-- **Conectar** com a comunidade de desenvolvedores
+- **Tutoriais práticos** sobre Power BI, DAX, Power Query e Microsoft Fabric
+- **Soluções** para problemas reais que encontrei ao longo da minha jornada
+- **Dicas e truques** que podem acelerar seu trabalho com ferramentas de BI
+- **Insights** sobre arquitetura de dados, modelagem e otimização de performance
+- **Discussões** sobre boas práticas em engenharia de analytics e governança de dados
 
 ## Por que comecei este blog
 
-Como desenvolvedores, estamos sempre aprendendo com blogs de outras pessoas, respostas do Stack Overflow e projetos open-source. Este blog é minha forma de retribuir para essa comunidade.
+Ao longo da minha carreira, aprendi muito com a comunidade: fóruns, blogs, documentações e vídeos compartilhados por outros profissionais foram fundamentais para meu crescimento. Este blog é minha forma de retribuir.
 
 > "A melhor forma de aprender é ensinando."
 {: .prompt-tip }
 
-Ao escrever sobre o que aprendo, reforço meu próprio entendimento enquanto ajudo outras pessoas a resolver desafios similares.
+Como MCT e profissional que atua diariamente com treinamento interno de equipes, percebi que escrever sobre o que aprendo não só reforça meu próprio conhecimento, mas também me permite alcançar e ajudar muito mais pessoas além das salas de treinamento.
 
 ## O que você pode esperar
 
 ### Tópicos que vou abordar
 
-- **Desenvolvimento Web**: Frontend, backend e full-stack
-- **DevOps & Ferramentas**: CI/CD, Docker, automação
-- **Linguagens de Programação**: Análises profundas e exemplos práticos
-- **Boas Práticas**: Qualidade de código, arquitetura, padrões
-- **Produtividade**: Ferramentas e técnicas que facilitam o desenvolvimento
+- **Power BI**: Modelagem, DAX, Power Query, administração e otimização
+- **Microsoft Fabric**: Pipelines, lakehouse, data warehousing e analytics
+- **Azure**: Fundamentos de dados na nuvem e integração com Power Platform
+- **Business Intelligence**: Arquitetura de soluções, boas práticas e governança
+- **Ferramentas avançadas**: Dax Studio, Tabular Editor, ALM Toolkit
+- **Produtividade**: Atalhos, técnicas e workflows que facilitam o dia a dia
 
 ### Tipos de posts
 
@@ -125,6 +142,7 @@ Meu objetivo é escrever conteúdo que seja:
 
 Adoraria ouvir de você! Veja como se conectar:
 
+- **LinkedIn**: [@fernandolozer](https://www.linkedin.com/in/fernandolozer/) - Vamos nos conectar
 - **GitHub**: [@flozer](https://github.com/flozer) - Confira meus projetos
 - **Comentários**: Use a seção de comentários abaixo de cada post (em breve)
 - **Feed RSS**: Assine através do ícone RSS na barra lateral
@@ -133,19 +151,20 @@ Adoraria ouvir de você! Veja como se conectar:
 
 Aqui estão alguns tópicos que estou planejando escrever:
 
-- Configurando ambientes de desenvolvimento modernos
-- Workflows e boas práticas com Git
-- Docker para desenvolvedores
-- Scripts de automação em Python
-- Desenvolvimento de APIs Web
-- Estratégias de testes
+- Otimização de modelos semânticos no Power BI
+- Melhores práticas com DAX para performance
+- Administração de capacidades Premium e Fabric
+- Pipelines de dados com Microsoft Fabric
+- Implementação de Row-Level Security (RLS)
+- Governança e segurança em ambientes de BI
+- Automação de deploys com ALM Toolkit
 - E muito mais!
 
 ## Vamos construir juntos
 
-Desenvolvimento de software é uma jornada de aprendizado contínuo. Estou animado para compartilhar a minha com você e aprender com suas experiências também.
+O mundo de dados e analytics é uma jornada de aprendizado contínuo. Estou animado para compartilhar a minha com você e aprender com suas experiências também.
 
-Seja você um iniciante começando agora ou um desenvolvedor experiente, espero que encontre algo útil aqui.
+Seja você um iniciante começando agora ou um profissional experiente em BI, espero que encontre algo útil aqui.
 
 **Obrigado pela visita e bom código!** 🚀
 
