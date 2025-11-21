@@ -28,37 +28,47 @@ Sou **Microsoft Certified Trainer (MCT)**, qualificado para ministrar treinament
 
 ## Experiência Profissional
 
-Minha trajetória profissional me proporcionou uma visão completa do universo de dados:
+Minha trajetória profissional começou na área de infraestrutura e evoluiu para o universo de dados, me proporcionando uma visão técnica completa:
 
-**Analytics Engineer**
+**Analytics Engineer** (Atual)
 Responsável pela arquitetura e desenvolvimento de soluções de dados e IA para suporte à diretoria. Gerencio o ciclo completo de pipelines usando Microsoft Fabric e lidero o desenvolvimento de relatórios estratégicos em Power BI. Foco no desenvolvimento de soluções inovadoras e treinamento interno de equipes.
 
 **Senior Data Analyst**
 Atuei em consultoria entregando projetos de Business Intelligence usando Microsoft Fabric e Power BI. Administrei ambientes Power BI, capacidades Premium/Embedded e Fabric. Utilizei ferramentas avançadas como Dax Studio, Tabular Editor e ALM Toolkit para otimização de modelos semânticos. Trabalhei próximo às equipes de engenharia para implementar regras de negócio complexas.
 
 **IT Manager | Data Analyst**
-Comecei minha carreira gerenciando infraestrutura de rede e data centers, garantindo operação 24x7. Participei ativamente de todas as etapas de processos de BI: queries SQL, tratamento de dados em Power Query, modelagem em Power BI e administração via Power BI Service, incluindo implementação de Row-Level Security (RLS).
+Fiz a transição para a área de dados, gerenciando infraestrutura de rede e data centers com operação 24x7. Participei ativamente de todas as etapas de processos de BI: queries SQL, tratamento de dados em Power Query, modelagem em Power BI e administração via Power BI Service, incluindo implementação de Row-Level Security (RLS).
+
+**Analista de Infraestrutura | Suporte Técnico**
+Iniciei minha carreira na área de infraestrutura de TI, desenvolvendo sólida experiência com servidores Linux e Windows, configuração e gerenciamento de Firewall, administração de redes e suporte técnico. Essa base técnica foi fundamental para minha evolução profissional.
 
 ## Habilidades Técnicas
 
-**Plataformas & Ferramentas:**
+**Dados & Analytics:**
 - Microsoft Fabric (Pipelines, Lakehouse, Data Warehouse)
 - Power BI (Desktop, Service, Premium, Embedded)
 - Azure Data Services
 - Power Platform
-- Git & GitHub
-
-**Linguagens & Desenvolvimento:**
 - DAX (Data Analysis Expressions)
 - Power Query (M)
 - SQL
-- Python (para automação e análise)
 
 **Ferramentas Avançadas:**
 - Dax Studio
 - Tabular Editor
 - ALM Toolkit
 - Visual Studio Code
+
+**Infraestrutura & Sistemas:**
+- Servidores Linux e Windows
+- Firewall e Segurança de Rede
+- Gerenciamento de Redes
+- Administração de Data Centers
+
+**Desenvolvimento & Automação:**
+- Python (automação e análise)
+- Git & GitHub
+- Scripts de automação
 
 ## O que você vai encontrar aqui
 
