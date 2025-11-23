@@ -45,7 +45,22 @@
     {%- capture script_content -%}
 {%- include {{ file_path }} -%}
     {%- endcapture -%}
-{% highlight {{ language }} %}{{ script_content }}{% endhighlight %}
+{%- case language -%}
+  {%- when "dax" -%}
+{% highlight dax %}{{ script_content }}{% endhighlight %}
+  {%- when "python" -%}
+{% highlight python %}{{ script_content }}{% endhighlight %}
+  {%- when "powershell" -%}
+{% highlight powershell %}{{ script_content }}{% endhighlight %}
+  {%- when "sql" -%}
+{% highlight sql %}{{ script_content }}{% endhighlight %}
+  {%- when "m" -%}
+{% highlight m %}{{ script_content }}{% endhighlight %}
+  {%- when "bash" -%}
+{% highlight bash %}{{ script_content }}{% endhighlight %}
+  {%- else -%}
+{% highlight text %}{{ script_content }}{% endhighlight %}
+{%- endcase -%}
   </div>
 
   <div class="script-footer" style="background: var(--card-bg); border: 1px solid var(--card-border-color); border-top: none; padding: 0.75rem 1rem; border-radius: 0 0 6px 6px; font-size: 0.85rem; color: var(--text-muted-color);">
