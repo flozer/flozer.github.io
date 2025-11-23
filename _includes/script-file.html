@@ -43,12 +43,9 @@
 
   <div class="script-content">
     {%- capture script_content -%}
-      {%- include {{ file_path }} -%}
+{%- include {{ file_path }} -%}
     {%- endcapture -%}
-
-```{{ language }}
-{{ script_content }}
-```
+{% highlight {{ language }} %}{{ script_content }}{% endhighlight %}
   </div>
 
   <div class="script-footer" style="background: var(--card-bg); border: 1px solid var(--card-border-color); border-top: none; padding: 0.75rem 1rem; border-radius: 0 0 6px 6px; font-size: 0.85rem; color: var(--text-muted-color);">
