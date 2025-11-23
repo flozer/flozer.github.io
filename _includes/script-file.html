@@ -1,0 +1,56 @@
+{%- comment -%}
+  Include para exibir scripts do repositório com informações de última atualização
+
+  Uso:
+  {% include script-file.html
+     file="scripts/dax/exemplo.dax"
+     language="dax"
+     title="Script de Exemplo"
+     description="Descrição do que o script faz"
+  %}
+{%- endcomment -%}
+
+{%- assign file_path = include.file -%}
+{%- assign language = include.language | default: "text" -%}
+{%- assign title = include.title -%}
+{%- assign description = include.description -%}
+{%- assign repo_url = "https://github.com/" | append: site.repository -%}
+{%- assign raw_url = "https://raw.githubusercontent.com/" | append: site.repository | append: "/main/" | append: file_path -%}
+{%- assign blob_url = repo_url | append: "/blob/main/" | append: file_path -%}
+
+<div class="script-container" style="margin: 2rem 0;">
+  <div class="script-header" style="background: var(--card-bg); border: 1px solid var(--card-border-color); border-bottom: none; padding: 1rem; border-radius: 6px 6px 0 0;">
+    <div style="display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 1rem;">
+      <div style="flex: 1; min-width: 250px;">
+        {%- if title -%}
+          <h4 style="margin: 0 0 0.5rem 0; color: var(--heading-color);">📄 {{ title }}</h4>
+        {%- endif -%}
+        {%- if description -%}
+          <p style="margin: 0; color: var(--text-muted-color); font-size: 0.9rem;">{{ description }}</p>
+        {%- endif -%}
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="{{ raw_url }}" download class="btn btn-sm" style="padding: 0.4rem 0.8rem; background: var(--btn-bg); color: var(--btn-text); text-decoration: none; border-radius: 4px; font-size: 0.85rem; white-space: nowrap;">
+          ⬇️ Download
+        </a>
+        <a href="{{ blob_url }}" target="_blank" class="btn btn-sm" style="padding: 0.4rem 0.8rem; background: var(--btn-bg); color: var(--btn-text); text-decoration: none; border-radius: 4px; font-size: 0.85rem; white-space: nowrap;">
+          🔗 Ver no GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="script-content">
+    {%- capture script_content -%}
+      {%- include {{ file_path }} -%}
+    {%- endcapture -%}
+
+```{{ language }}
+{{ script_content }}
+```
+  </div>
+
+  <div class="script-footer" style="background: var(--card-bg); border: 1px solid var(--card-border-color); border-top: none; padding: 0.75rem 1rem; border-radius: 0 0 6px 6px; font-size: 0.85rem; color: var(--text-muted-color);">
+    📁 <code style="background: var(--code-bg); padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.8rem;">{{ file_path }}</code>
+  </div>
+</div>

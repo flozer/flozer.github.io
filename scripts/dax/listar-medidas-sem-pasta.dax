@@ -1,0 +1,22 @@
+// Script DAX: Listar todas as medidas sem pasta de exibição
+// Útil para identificar medidas que precisam ser organizadas
+// Execute no DAX Studio conectado ao seu modelo
+
+EVALUATE
+FILTER(
+    ADDCOLUMNS(
+        SELECTCOLUMNS(
+            INFO.MEASURES(),
+            "Tabela", [TABLE],
+            "Medida", [MEASURE]
+        ),
+        "Pasta de Exibição",
+        LOOKUPVALUE(
+            INFO.MEASURES()[DISPLAYFOLDER],
+            INFO.MEASURES()[TABLE], [Tabela],
+            INFO.MEASURES()[MEASURE], [Medida]
+        )
+    ),
+    [Pasta de Exibição] = BLANK()
+)
+ORDER BY [Tabela], [Medida]

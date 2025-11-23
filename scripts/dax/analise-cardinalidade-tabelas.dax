@@ -1,0 +1,23 @@
+// Script DAX: Análise de cardinalidade de todas as tabelas
+// Útil para identificar tabelas grandes e otimizar o modelo
+// Execute no DAX Studio
+
+EVALUATE
+ADDCOLUMNS(
+    SELECTCOLUMNS(
+        INFO.TABLES(),
+        "Tabela", [TABLE]
+    ),
+    "Linhas", COUNTROWS(SUMMARIZE(ALLSELECTED(), [Tabela])),
+    "Colunas",
+        CALCULATE(
+            COUNTROWS(INFO.COLUMNS()),
+            INFO.COLUMNS()[TABLE] = [Tabela]
+        ),
+    "Medidas",
+        CALCULATE(
+            COUNTROWS(INFO.MEASURES()),
+            INFO.MEASURES()[TABLE] = [Tabela]
+        )
+)
+ORDER BY [Linhas] DESC
