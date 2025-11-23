@@ -106,7 +106,7 @@ python validar-pbix-pasta.py "C:\MeusProjetos\PowerBI"
 
 ## Contribua!
 
-Todos estes scripts estão disponíveis no [repositório do blog no GitHub](https://github.com/flozer/flozer.github.io/tree/main/scripts).
+Todos estes scripts estão disponíveis no [repositório do blog no GitHub](https://github.com/flozer/flozer.github.io/tree/main/_includes/scripts).
 
 Se você tiver sugestões de melhorias ou novos scripts úteis, sinta-se à vontade para:
 - Abrir uma [issue](https://github.com/flozer/flozer.github.io/issues)

@@ -2,10 +2,12 @@
 
 Esta pasta contém scripts úteis para Power BI, DAX, Python, PowerShell e outras ferramentas de dados.
 
+> **Nota:** Os scripts estão armazenados em `_includes/scripts/` para serem facilmente incluídos nos posts do blog Jekyll.
+
 ## 📁 Estrutura
 
 ```
-scripts/
+_includes/scripts/
 ├── dax/               # Scripts DAX para DAX Studio e Power BI
 ├── powerquery/        # Scripts M (Power Query)
 ├── python/            # Scripts Python para automação e análise

@@ -15,8 +15,9 @@
 {%- assign title = include.title -%}
 {%- assign description = include.description -%}
 {%- assign repo_url = "https://github.com/" | append: site.repository -%}
-{%- assign raw_url = "https://raw.githubusercontent.com/" | append: site.repository | append: "/main/" | append: file_path -%}
-{%- assign blob_url = repo_url | append: "/blob/main/" | append: file_path -%}
+{%- assign github_path = "_includes/" | append: file_path -%}
+{%- assign raw_url = "https://raw.githubusercontent.com/" | append: site.repository | append: "/main/" | append: github_path -%}
+{%- assign blob_url = repo_url | append: "/blob/main/" | append: github_path -%}
 
 <div class="script-container" style="margin: 2rem 0;">
   <div class="script-header" style="background: var(--card-bg); border: 1px solid var(--card-border-color); border-bottom: none; padding: 1rem; border-radius: 6px 6px 0 0;">
@@ -51,6 +52,6 @@
   </div>
 
   <div class="script-footer" style="background: var(--card-bg); border: 1px solid var(--card-border-color); border-top: none; padding: 0.75rem 1rem; border-radius: 0 0 6px 6px; font-size: 0.85rem; color: var(--text-muted-color);">
-    📁 <code style="background: var(--code-bg); padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.8rem;">{{ file_path }}</code>
+    📁 <code style="background: var(--code-bg); padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.8rem;">{{ github_path }}</code>
   </div>
 </div>
