@@ -48,6 +48,7 @@ collections:
         widget: "select"
         multiple: true
         required: false
+        create: true
         options:
           - "Power BI"
           - "DAX"
@@ -58,13 +59,14 @@ collections:
           - "Tecnologia"
           - "Otimização"
           - "Boas Práticas"
-        hint: "Escolha uma ou mais categorias"
+        hint: "Escolha categorias do dropdown ou digite uma nova e pressione Enter"
 
       - label: "Tags"
         name: "tags"
         widget: "select"
         multiple: true
         required: false
+        create: true
         options:
           - "dax"
           - "powerbi"
@@ -87,7 +89,7 @@ collections:
           - "github"
           - "markdown"
           - "seo"
-        hint: "Escolha tags relevantes (minúsculas, separadas por hífen)"
+        hint: "Escolha tags do dropdown ou digite uma nova (minúsculas, com hífen) e pressione Enter"
 
       # ===== IMAGEM E SEO =====
       - label: "Imagem de Capa"
