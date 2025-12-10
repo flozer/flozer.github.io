@@ -4,35 +4,48 @@ Este diretório contém a configuração do Decap CMS para gerenciar o conteúdo
 
 ## 🚀 Como Acessar
 
-Após o deploy, acesse: **https://flozer.github.io/admin**
+Acesse: **https://flozer.github.io/admin**
+
+## ✨ Solução Atual: Cloudflare Worker
+
+Este CMS usa **GitHub OAuth via Cloudflare Worker** para autenticação.
+
+**Arquitetura:**
+- **Backend:** GitHub (backend direto)
+- **OAuth Proxy:** Cloudflare Worker (`decap-oauth.fernandolozer.workers.dev`)
+- **Autenticação:** GitHub OAuth App
+- **Hospedagem:** GitHub Pages
 
 ## 🔐 Autenticação
 
-### Primeira vez - Configurar OAuth GitHub
+### Como Funciona (Já Configurado!)
 
-Para que o Decap CMS funcione, você precisa configurar a autenticação OAuth do GitHub:
+A autenticação já está 100% configurada e funcional:
 
-#### Opção 1: Netlify Identity (Mais Simples - Recomendado)
+1. **GitHub OAuth App criado**
+   - Application: "Decap CMS - flozer.github.io"
+   - Callback URL: `https://decap-oauth.fernandolozer.workers.dev/callback`
 
-1. Crie uma conta gratuita no [Netlify](https://www.netlify.com/)
-2. Conecte seu repositório GitHub
-3. Ative o Netlify Identity
-4. Configure o Git Gateway
-5. Pronto! Você poderá fazer login com email
+2. **Cloudflare Worker deployado**
+   - URL: `https://decap-oauth.fernandolozer.workers.dev`
+   - Secrets configurados (GITHUB_OAUTH_ID e GITHUB_OAUTH_SECRET)
 
-#### Opção 2: GitHub OAuth App (Avançado)
+3. **Fluxo de Login:**
+   - Você clica em "Login with GitHub"
+   - Redireciona para Cloudflare Worker
+   - Worker redireciona para GitHub OAuth
+   - Você autoriza (permissões: repos públicos/privados)
+   - Token é retornado para Decap CMS
+   - ✨ Autenticado!
 
-Se preferir autenticação direta com GitHub:
+### Revogar Acesso (Se Necessário)
 
-1. Acesse: https://github.com/settings/developers
-2. Clique em "New OAuth App"
-3. Preencha:
-   - **Application name:** Decap CMS - flozer.github.io
-   - **Homepage URL:** https://flozer.github.io
-   - **Authorization callback URL:** https://api.netlify.com/auth/done
-4. Copie o Client ID e Client Secret
-5. No Netlify: Site Settings → Access Control → OAuth → Install Provider
-6. Cole as credenciais do GitHub
+Se precisar reconectar:
+
+1. Acesse: https://github.com/settings/applications
+2. Procure: "Decap CMS - flozer.github.io"
+3. Clique em "Revoke"
+4. Faça login novamente no `/admin`
 
 ## 📝 Como Usar
 
