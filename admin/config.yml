@@ -6,11 +6,11 @@ backend:
   auth_endpoint: /auth
 
 # Configuração de mídia (imagens)
-media_folder: "assets/images/posts" # Pasta onde as imagens serão salvas
-public_folder: "/assets/images/posts" # URL pública das imagens
+media_folder: "assets/images/posts"
+public_folder: "/assets/images/posts"
 
-# Configuração de publicação
-publish_mode: editorial_workflow # Permite salvar rascunhos antes de publicar
+# Configuração de publicação (desabilitado para publicação direta)
+# publish_mode: editorial_workflow
 
 # Configuração de locale
 locale: pt
@@ -26,19 +26,114 @@ collections:
     editor:
       preview: true
     fields:
+      # ===== METADADOS PRINCIPAIS =====
       - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
-      - { label: "Título", name: "title", widget: "string" }
-      - { label: "Data de Publicação", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss ZZ", date_format: "DD/MM/YYYY", time_format: "HH:mm" }
-      - { label: "Categorias", name: "categories", widget: "list", required: false, hint: "Ex: Power BI, Scripts" }
-      - { label: "Tags", name: "tags", widget: "list", required: false, hint: "Ex: dax, powerbi, scripts" }
+
+      - label: "Título"
+        name: "title"
+        widget: "string"
+        hint: "Título do post (claro e descritivo)"
+
+      - label: "Data de Publicação"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD HH:mm:ss ZZ"
+        date_format: "DD/MM/YYYY"
+        time_format: "HH:mm"
+        hint: "Data e hora de publicação"
+
+      # ===== CATEGORIZAÇÃO =====
+      - label: "Categorias"
+        name: "categories"
+        widget: "select"
+        multiple: true
+        required: false
+        options:
+          - "Power BI"
+          - "DAX"
+          - "Scripts"
+          - "Tutoriais"
+          - "Análise de Dados"
+          - "IA"
+          - "Tecnologia"
+          - "Otimização"
+          - "Boas Práticas"
+        hint: "Escolha uma ou mais categorias"
+
+      - label: "Tags"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        required: false
+        options:
+          - "dax"
+          - "powerbi"
+          - "scripts"
+          - "tutorial"
+          - "dax-studio"
+          - "otimizacao"
+          - "python"
+          - "excel"
+          - "power-query"
+          - "introducao"
+          - "intermediario"
+          - "avancado"
+          - "produtividade"
+          - "atalhos"
+          - "ia"
+          - "machine-learning"
+        hint: "Escolha tags relevantes (minúsculas, separadas por hífen)"
+
+      # ===== IMAGEM E SEO =====
       - label: "Imagem de Capa"
         name: "image"
         widget: "object"
         required: false
+        collapsed: true
         fields:
-          - { label: "URL da Imagem", name: "path", widget: "string", required: false, hint: "URL da imagem (Unsplash, upload, etc)" }
-          - { label: "Texto Alternativo", name: "alt", widget: "string", required: false }
-      - { label: "Conteúdo", name: "body", widget: "markdown" }
+          - label: "Imagem"
+            name: "path"
+            widget: "image"
+            required: false
+            hint: "Faça upload de uma imagem ou cole URL do Unsplash"
+            media_library:
+              config:
+                max_file_size: 512000
+          - label: "Texto Alternativo"
+            name: "alt"
+            widget: "string"
+            required: false
+            hint: "Descrição da imagem para acessibilidade e SEO"
+
+      - label: "Descrição (SEO)"
+        name: "description"
+        widget: "text"
+        required: false
+        hint: "Resumo do post para motores de busca (150-160 caracteres ideais)"
+        pattern: ['.{0,160}', "Máximo de 160 caracteres"]
+
+      - label: "Post em Destaque?"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Marcar como post importante/destacado"
+
+      # ===== CONTEÚDO =====
+      - label: "Conteúdo"
+        name: "body"
+        widget: "markdown"
+        hint: "Use Markdown para formatar o conteúdo"
+        buttons:
+          - bold
+          - italic
+          - code
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
 
   # Páginas estáticas
   - name: "pages"
