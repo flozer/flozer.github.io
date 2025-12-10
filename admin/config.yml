@@ -23,6 +23,21 @@ collections:
     folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} | {{status}} | {{date}}"
+    sortable_fields: ['title', 'date', 'status', 'featured']
+    view_filters:
+      - label: "Rascunhos"
+        field: status
+        pattern: 'rascunho'
+      - label: "Em Revisão"
+        field: status
+        pattern: 'revisao'
+      - label: "Publicados"
+        field: status
+        pattern: 'publicado'
+      - label: "Posts em Destaque"
+        field: featured
+        pattern: true
     editor:
       preview: true
     fields:
@@ -118,6 +133,17 @@ collections:
         default: false
         required: false
         hint: "Marcar como post importante/destacado"
+
+      - label: "Status do Post"
+        name: "status"
+        widget: "select"
+        required: false
+        default: "rascunho"
+        options:
+          - { label: "📝 Rascunho", value: "rascunho" }
+          - { label: "✏️ Em Revisão", value: "revisao" }
+          - { label: "✅ Publicado", value: "publicado" }
+        hint: "Controle pessoal do estado do post"
 
       # ===== CONTEÚDO =====
       - label: "Conteúdo"
