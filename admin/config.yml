@@ -1,0 +1,53 @@
+backend:
+  name: github
+  repo: flozer/flozer.github.io
+  branch: main # Branch que será usada para salvar os posts
+
+# Configuração de mídia (imagens)
+media_folder: "assets/images/posts" # Pasta onde as imagens serão salvas
+public_folder: "/assets/images/posts" # URL pública das imagens
+
+# Configuração de publicação
+publish_mode: editorial_workflow # Permite salvar rascunhos antes de publicar
+
+# Configuração de locale
+locale: pt
+
+# Collections (tipos de conteúdo)
+collections:
+  # Posts do blog
+  - name: "posts"
+    label: "Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Data de Publicação", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss ZZ", date_format: "DD/MM/YYYY", time_format: "HH:mm" }
+      - { label: "Categorias", name: "categories", widget: "list", required: false, hint: "Ex: Power BI, Scripts" }
+      - { label: "Tags", name: "tags", widget: "list", required: false, hint: "Ex: dax, powerbi, scripts" }
+      - label: "Imagem de Capa"
+        name: "image"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "URL da Imagem", name: "path", widget: "string", required: false, hint: "URL da imagem (Unsplash, upload, etc)" }
+          - { label: "Texto Alternativo", name: "alt", widget: "string", required: false }
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
+
+  # Páginas estáticas
+  - name: "pages"
+    label: "Páginas"
+    files:
+      - label: "Sobre"
+        name: "about"
+        file: "_tabs/about.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
+          - { label: "Ícone", name: "icon", widget: "string", default: "fas fa-info-circle" }
+          - { label: "Ordem", name: "order", widget: "number", default: 4 }
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Conteúdo", name: "body", widget: "markdown" }
