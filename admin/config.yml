@@ -82,6 +82,11 @@ collections:
           - "atalhos"
           - "ia"
           - "machine-learning"
+          - "data-science"
+          - "git"
+          - "github"
+          - "markdown"
+          - "seo"
         hint: "Escolha tags relevantes (minúsculas, separadas por hífen)"
 
       # ===== IMAGEM E SEO =====
