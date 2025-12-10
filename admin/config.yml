@@ -2,6 +2,9 @@ backend:
   name: git-gateway
   branch: main # Branch que será usada para salvar os posts
 
+# URL do site Netlify (necessário para autenticação)
+site_url: https://flozer.github.io
+
 # Configuração de mídia (imagens)
 media_folder: "assets/images/posts" # Pasta onde as imagens serão salvas
 public_folder: "/assets/images/posts" # URL pública das imagens
