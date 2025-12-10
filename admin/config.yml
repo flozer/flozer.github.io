@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: flozer/flozer.github.io
+  name: git-gateway
   branch: main # Branch que será usada para salvar os posts
 
 # Configuração de mídia (imagens)
