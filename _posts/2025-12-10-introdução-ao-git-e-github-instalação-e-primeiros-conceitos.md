@@ -11,6 +11,9 @@ tags:
   - github
   - ci/cd
   - versionamento
+image:
+  path: /assets/images/posts/gitegithub.png
+featured: true
 ---
 > **Para quem é este post?** Estou criando esse post principalmente aplicado a quem trabalha com Dados (Data Engineers, Analytics Engineers, etc), porém, se você é DEV, também vai ser muito útil, pois provavelmente já faz parte do seu dia a dia. 😉
 
