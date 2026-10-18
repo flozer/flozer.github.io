@@ -1,5 +1,6 @@
 ---
 title: "Scripts Úteis DAX para Power BI"
+description: "Scripts DAX prontos para DAX Studio e Power BI: medidas sem pasta de exibição, cardinalidade de tabelas e automações em PowerShell e Python."
 date: 2025-01-23 14:00:00 -0300
 categories: [Power BI, Scripts]
 tags: [dax, powerbi, scripts, dax-studio, otimizacao]

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Introdução ao Git e GitHub: Instalação e Primeiros Conceitos"
+description: "Primeiro post da série de Git e GitHub para profissionais de dados: a diferença entre Git e GitHub, a instalação e a configuração inicial."
 date: 2025-12-10 17:47:00 -0300
 categories:
   - Git
@@ -12,7 +13,8 @@ tags:
   - ci-cd
   - versionamento
 image:
-  path: /assets/images/posts/gitegithub.png
+  path: /assets/images/posts/git-github-capa.png
+  alt: "Git + GitHub: instalação e primeiros conceitos"
 pin: false
 published: false
 ---

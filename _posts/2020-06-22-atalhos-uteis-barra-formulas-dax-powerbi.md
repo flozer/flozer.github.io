@@ -1,5 +1,6 @@
 ---
 title: "Atalhos Úteis para Barra de Fórmulas DAX - Power BI Desktop"
+description: "Os atalhos de teclado mais úteis da barra de fórmulas DAX no Power BI Desktop: múltiplos cursores, indentação, comentários, mover e copiar linhas."
 date: 2020-06-22 10:00:00 -0300
 categories: [Power BI, DAX]
 tags: [powerbi, dax, atalhos, produtividade, tutorial]

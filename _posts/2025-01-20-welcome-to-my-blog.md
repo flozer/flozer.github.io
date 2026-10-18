@@ -1,5 +1,6 @@
 ---
 title: "Bem-vindo ao meu blog técnico!"
+description: "Conheça o blog: quem sou, o que vou compartilhar sobre Power BI, Microsoft Fabric, dados e IA, e como o site foi construído."
 date: 2025-01-20 10:00:00 -0500
 categories: [Blog, Meta]
 tags: [introducao, jekyll, github-pages, chirpy]
