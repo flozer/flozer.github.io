@@ -28,6 +28,9 @@ url: "https://flozer.github.io"
 github:
   username: flozer # change to your GitHub username
 
+# Repositório usado por _includes/script-file.html para montar os links de download/GitHub
+repository: flozer/flozer.github.io
+
 twitter:
   username: # change to your Twitter username if you have one
 

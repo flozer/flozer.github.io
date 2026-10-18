@@ -89,6 +89,7 @@ collections:
           - "github"
           - "markdown"
           - "seo"
+          - "ci-cd"
         hint: "Escolha tags do dropdown ou digite uma nova (minúsculas, com hífen) e pressione Enter"
 
       # ===== IMAGEM E SEO =====
@@ -119,12 +120,12 @@ collections:
         hint: "Resumo do post para motores de busca (150-160 caracteres ideais)"
         pattern: ['.{0,160}', "Máximo de 160 caracteres"]
 
-      - label: "Post em Destaque?"
-        name: "featured"
+      - label: "Fixar no Topo?"
+        name: "pin"
         widget: "boolean"
         default: false
         required: false
-        hint: "Marcar como post importante/destacado"
+        hint: "Fixa o post no topo da página inicial"
 
       - label: "Publicar Post?"
         name: "published"

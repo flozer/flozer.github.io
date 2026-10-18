@@ -17,6 +17,9 @@ Neste post, compartilho alguns scripts que uso frequentemente no meu dia a dia c
 > **Dica:** Todos os scripts abaixo estão armazenados no repositório do blog e são atualizados conforme descubro melhorias. Use os botões de download para salvá-los localmente!
 {: .prompt-tip }
 
+> Os scripts usam as funções `INFO.VIEW.*` e `COLUMNSTATISTICS()`, disponíveis nas versões recentes do Power BI Desktop. Funcionam tanto no DAX Studio quanto na **Exibição de consulta DAX** do próprio Power BI Desktop.
+{: .prompt-info }
+
 ## 1. Listar Medidas Sem Pasta de Exibição
 
 Um modelo organizado facilita muito a manutenção. Este script identifica todas as medidas que não estão organizadas em pastas de exibição.
@@ -43,7 +46,7 @@ Um modelo organizado facilita muito a manutenção. Este script identifica todas
 
 ## 2. Análise de Cardinalidade de Tabelas
 
-Entender o tamanho das suas tabelas é fundamental para otimização. Este script mostra quantas linhas, colunas e medidas cada tabela possui.
+Entender o tamanho das suas tabelas é fundamental para otimização. Este script mostra a maior cardinalidade (uma aproximação do número de linhas), a quantidade de colunas e de medidas de cada tabela.
 
 {% include script-file.html
    file="scripts/dax/analise-cardinalidade-tabelas.dax"
