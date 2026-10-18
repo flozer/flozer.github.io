@@ -1,21 +1,40 @@
-// Script DAX: Análise de cardinalidade de todas as tabelas
-// Útil para identificar tabelas grandes e otimizar o modelo
+// Script DAX: Linhas, colunas, medidas e maior cardinalidade de cada tabela
+// Útil para identificar tabelas grandes e colunas que pesam no modelo
 // Execute no DAX Studio ou na Exibição de consulta DAX do Power BI Desktop
 // Requer suporte às funções INFO.VIEW e COLUMNSTATISTICS
 //
-// "Maior Cardinalidade" é o maior número de valores distintos entre as
-// colunas da tabela: uma boa aproximação (limite inferior) do total de linhas.
+// COLUMNSTATISTICS() traz uma linha "RowNumber-..." por tabela, cuja
+// cardinalidade é exatamente o número de linhas da tabela.
 
 EVALUATE
 VAR Estatisticas = COLUMNSTATISTICS()
-VAR Colunas = INFO.VIEW.COLUMNS()
 VAR Medidas = INFO.VIEW.MEASURES()
 RETURN
     ADDCOLUMNS(
         SELECTCOLUMNS(INFO.VIEW.TABLES(), "Tabela", [Name]),
-        "Maior Cardinalidade",
-            MAXX(FILTER(Estatisticas, [Table Name] = [Tabela]), [Cardinality]),
-        "Colunas", COUNTROWS(FILTER(Colunas, [Table] = [Tabela])),
+        "Linhas",
+            MAXX(
+                FILTER(
+                    Estatisticas,
+                    [Table Name] = [Tabela] && LEFT([Column Name], 9) = "RowNumber"
+                ),
+                [Cardinality]
+            ),
+        "Colunas",
+            COUNTROWS(
+                FILTER(
+                    Estatisticas,
+                    [Table Name] = [Tabela] && LEFT([Column Name], 9) <> "RowNumber"
+                )
+            ),
+        "Maior Cardinalidade de Coluna",
+            MAXX(
+                FILTER(
+                    Estatisticas,
+                    [Table Name] = [Tabela] && LEFT([Column Name], 9) <> "RowNumber"
+                ),
+                [Cardinality]
+            ),
         "Medidas", COUNTROWS(FILTER(Medidas, [Table] = [Tabela]))
     )
-ORDER BY [Maior Cardinalidade] DESC
+ORDER BY [Linhas] DESC

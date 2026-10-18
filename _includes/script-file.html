@@ -31,7 +31,12 @@
         {%- endif -%}
       </div>
       <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-        <a href="{{ raw_url }}" download class="btn btn-sm" style="padding: 0.4rem 0.8rem; background: var(--btn-bg); color: var(--btn-text); text-decoration: none; border-radius: 4px; font-size: 0.85rem; white-space: nowrap;">
+        {%- comment -%}
+          O atributo "download" é ignorado em links para outro domínio (raw.githubusercontent.com),
+          então o download é feito via JavaScript: baixa o arquivo original e salva com o nome certo.
+          Sem JavaScript, o link abre o arquivo bruto.
+        {%- endcomment -%}
+        <a href="{{ raw_url }}" data-script-download="{{ file_path | split: '/' | last }}" onclick="return window.downloadScriptFile ? downloadScriptFile(event, this) : true;" class="btn btn-sm" style="padding: 0.4rem 0.8rem; background: var(--btn-bg); color: var(--btn-text); text-decoration: none; border-radius: 4px; font-size: 0.85rem; white-space: nowrap;">
           ⬇️ Download
         </a>
         <a href="{{ blob_url }}" target="_blank" class="btn btn-sm" style="padding: 0.4rem 0.8rem; background: var(--btn-bg); color: var(--btn-text); text-decoration: none; border-radius: 4px; font-size: 0.85rem; white-space: nowrap;">
@@ -67,3 +72,31 @@
     📁 <code style="background: var(--code-bg); padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.8rem;">{{ github_path }}</code>
   </div>
 </div>
+<script>
+  if (!window.downloadScriptFile) {
+    window.downloadScriptFile = function (event, link) {
+      event.preventDefault();
+      var name = link.getAttribute('data-script-download');
+      var container = link.closest('.script-container');
+      function save(text) {
+        var url = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' }));
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = name;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      }
+      function fromPage() {
+        var code = container && container.querySelector('.rouge-code pre, pre code, pre');
+        if (code) { save(code.innerText); } else { window.location.href = link.href; }
+      }
+      fetch(link.href)
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.blob(); })
+        .then(save)
+        .catch(fromPage);
+      return false;
+    };
+  }
+</script>

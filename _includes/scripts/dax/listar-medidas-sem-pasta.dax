@@ -1,7 +1,9 @@
 // Script DAX: Listar todas as medidas sem pasta de exibição
 // Útil para identificar medidas que precisam ser organizadas
 // Execute no DAX Studio ou na Exibição de consulta DAX do Power BI Desktop
-// Requer suporte às funções INFO.VIEW (Power BI Desktop a partir de 2024)
+// Requer suporte às funções INFO.VIEW e permissão de escrita no modelo
+// (não funciona com conexão ao vivo a um modelo publicado no Power BI Desktop).
+// Se der erro de coluna, rode EVALUATE INFO.VIEW.MEASURES() para ver os nomes disponíveis.
 
 EVALUATE
 SELECTCOLUMNS(

@@ -1,10 +1,11 @@
 """
 Script Python: Validar arquivos PBIX em uma pasta
-Verifica se os arquivos PBIX não estão corrompidos e lista informações básicas
-Requer: pip install python-pptx (PBIX usa formato ZIP similar)
+Um PBIX é um arquivo ZIP. Este script confere se o ZIP está íntegro (CRC de
+cada arquivo interno) e lista tamanho e data de modificação.
+Atenção: um ZIP íntegro não garante que o Power BI consiga abrir o modelo.
+Requer apenas a biblioteca padrão do Python 3.
 """
 
-import os
 import zipfile
 from pathlib import Path
 from datetime import datetime
