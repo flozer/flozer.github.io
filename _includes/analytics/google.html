@@ -1,0 +1,164 @@
+{%- comment -%}
+  Sobrescreve o include do tema Chirpy (_includes/analytics/google.html).
+
+  Google Analytics com consentimento (LGPD): o gtag.js só é carregado depois
+  que o visitante clica em "Aceitar cookies". Sem escolha ou com "Só o necessário", nenhum
+  script ou cookie do Google é carregado. A escolha fica no localStorage e pode
+  ser alterada pela página /privacidade/ (window.openCookiePreferences()).
+{%- endcomment -%}
+
+<style>
+  #cookie-consent {
+    position: fixed;
+    inset: auto 1rem 1rem auto;
+    z-index: 1080;
+    max-width: 24rem;
+    padding: 1rem 1.25rem;
+    background: var(--card-bg, #fff);
+    color: var(--text-color, #34343c);
+    border: 1px solid var(--main-border-color, #e9ecef);
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.18);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  #cookie-consent[hidden] {
+    display: none;
+  }
+
+  #cookie-consent p {
+    margin: 0 0 0.75rem;
+  }
+
+  #cookie-consent a {
+    color: var(--link-color, #0056b2);
+  }
+
+  #cookie-consent .cookie-consent-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+  }
+
+  #cookie-consent button {
+    padding: 0.35rem 0.9rem;
+    border-radius: 0.4rem;
+    border: 1px solid var(--btn-border-color, #e9ecef);
+    background: transparent;
+    color: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  #cookie-consent button[data-consent='granted'] {
+    background: var(--link-color, #0056b2);
+    border-color: var(--link-color, #0056b2);
+    color: #fff;
+  }
+
+  @media (max-width: 576px) {
+    #cookie-consent {
+      inset: auto 0.75rem 0.75rem 0.75rem;
+      max-width: none;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    var GA_ID = '{{ site.analytics.google.id }}';
+    var KEY = 'cookie-consent';
+    var loaded = false;
+
+    function readChoice() {
+      try {
+        return localStorage.getItem(KEY);
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function saveChoice(value) {
+      try {
+        localStorage.setItem(KEY, value);
+      } catch (e) {}
+    }
+
+    function loadAnalytics() {
+      if (loaded) return;
+      loaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () {
+        dataLayer.push(arguments);
+      };
+      gtag('js', new Date());
+      gtag('config', GA_ID);
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(s);
+    }
+
+    function clearAnalyticsCookies() {
+      var host = location.hostname;
+      document.cookie.split(';').forEach(function (c) {
+        var name = c.split('=')[0].trim();
+        if (name === '_ga' || name.indexOf('_ga_') === 0 || name === '_gid') {
+          ['', host, '.' + host].forEach(function (domain) {
+            document.cookie =
+              name + '=; Max-Age=0; path=/' + (domain ? '; domain=' + domain : '');
+          });
+        }
+      });
+    }
+
+    function buildBanner() {
+      var banner = document.createElement('div');
+      banner.id = 'cookie-consent';
+      banner.setAttribute('role', 'dialog');
+      banner.setAttribute('aria-live', 'polite');
+      banner.setAttribute('aria-label', 'Consentimento de cookies');
+      banner.hidden = true;
+      banner.innerHTML =
+        '<p>🍪 Posso usar cookies do Google Analytics para saber quais posts você mais curte? ' +
+        'Nada é ativado sem o seu OK. ' +
+        '<a href="{{ "/privacidade/" | relative_url }}">Saiba mais</a>.</p>' +
+        '<div class="cookie-consent-actions">' +
+        '<button type="button" data-consent="denied">Só o necessário</button>' +
+        '<button type="button" data-consent="granted">Aceitar cookies</button>' +
+        '</div>';
+      banner.addEventListener('click', function (event) {
+        var choice = event.target.getAttribute('data-consent');
+        if (!choice) return;
+        var previous = readChoice();
+        saveChoice(choice);
+        banner.hidden = true;
+        if (choice === 'granted') {
+          loadAnalytics();
+        } else if (previous === 'granted') {
+          /* Revogou depois de aceitar: apaga os cookies e recarrega sem o GA
+             (comentário em bloco porque o compress_html do Chirpy junta as linhas) */
+          clearAnalyticsCookies();
+          location.reload();
+        }
+      });
+      document.body.appendChild(banner);
+      return banner;
+    }
+
+    var banner;
+    window.openCookiePreferences = function () {
+      if (!banner) banner = buildBanner();
+      banner.hidden = false;
+    };
+
+    if (readChoice() === 'granted') {
+      loadAnalytics();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      if (readChoice() === null) window.openCookiePreferences();
+    });
+  })();
+</script>
