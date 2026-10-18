@@ -1,5 +1,8 @@
 # Guia Completo: Decap CMS
 
+> ⚠️ **Documento histórico.** Em outubro de 2026 o Decap CMS foi substituído pelo **Sveltia CMS**.
+> A configuração atual está descrita em [README.md](README.md).
+
 > **Sistema de Gerenciamento de Conteúdo para criar posts de qualquer lugar**
 > Implementado em: Dezembro 2025
 > Autor: Fernando Lozer

@@ -1,130 +1,79 @@
-# Decap CMS - Painel de Administração
+# Sveltia CMS - Painel de Administração
 
-Este diretório contém a configuração do Decap CMS para gerenciar o conteúdo do blog.
+Este diretório contém a configuração do [Sveltia CMS](https://sveltiacms.app/en/docs) (sucessor do Decap/Netlify CMS) para gerenciar o conteúdo do blog.
 
 ## 🚀 Como Acessar
 
-Acesse: **https://flozer.github.io/admin**
+Acesse: **https://flozer.github.io/admin/**
 
-## ✨ Solução Atual: Cloudflare Worker
+## 🏗️ Arquitetura
 
-Este CMS usa **GitHub OAuth via Cloudflare Worker** para autenticação.
-
-**Arquitetura:**
-- **Backend:** GitHub (backend direto)
-- **OAuth Proxy:** Cloudflare Worker (`decap-oauth.fernandolozer.workers.dev`)
-- **Autenticação:** GitHub OAuth App
-- **Hospedagem:** GitHub Pages
+- **CMS:** Sveltia CMS carregado via unpkg com **versão fixa** (veja `index.html`)
+- **Backend:** GitHub (`flozer/flozer.github.io`, branch `main`)
+- **OAuth Proxy:** Cloudflare Worker (`decap-oauth.fernandolozer.workers.dev`), o mesmo usado antes com o Decap
+- **Hospedagem:** GitHub Pages, deploy via GitHub Actions a cada push na `main`
 
 ## 🔐 Autenticação
 
-### Como Funciona (Já Configurado!)
+O login usa o GitHub OAuth App "Decap CMS - flozer.github.io" através do Cloudflare Worker. O Sveltia é compatível com OAuth clients feitos para o Decap, então nada mudou aqui.
 
-A autenticação já está 100% configurada e funcional:
+Para revogar o acesso: https://github.com/settings/applications → "Decap CMS - flozer.github.io" → Revoke.
 
-1. **GitHub OAuth App criado**
-   - Application: "Decap CMS - flozer.github.io"
-   - Callback URL: `https://decap-oauth.fernandolozer.workers.dev/callback`
+## 📝 Fluxo de Publicação (Editorial Workflow)
 
-2. **Cloudflare Worker deployado**
-   - URL: `https://decap-oauth.fernandolozer.workers.dev`
-   - Secrets configurados (GITHUB_OAUTH_ID e GITHUB_OAUTH_SECRET)
+Cada post novo ou editado **não** vai direto para a `main`:
 
-3. **Fluxo de Login:**
-   - Você clica em "Login with GitHub"
-   - Redireciona para Cloudflare Worker
-   - Worker redireciona para GitHub OAuth
-   - Você autoriza (permissões: repos públicos/privados)
-   - Token é retornado para Decap CMS
-   - ✨ Autenticado!
+1. **Rascunho:** ao salvar, o CMS cria uma branch e um pull request. O site não muda.
+2. **Em revisão / Pronto:** mova o card no painel "Editorial Workflow" para organizar.
+3. **Publicar:** o CMS faz o merge do PR na `main`, e o GitHub Actions publica o site.
 
-### Revogar Acesso (Se Necessário)
+Assim os rascunhos não poluem o histórico da `main` nem disparam deploy a cada salvamento.
 
-Se precisar reconectar:
+O campo **"Publicado no site?"** (`published`) só serve para tirar do ar um post que já foi publicado.
 
-1. Acesse: https://github.com/settings/applications
-2. Procure: "Decap CMS - flozer.github.io"
-3. Clique em "Revoke"
-4. Faça login novamente no `/admin`
+## ✍️ Editor de Conteúdo
 
-## 📝 Como Usar
+O campo **Conteúdo** abre em **modo Markdown** (raw). Use esse modo para posts com sintaxe do Chirpy:
 
-### Criar um Novo Post
+- Caixas de dica: `{: .prompt-tip }`, `{: .prompt-info }`, `{: .prompt-warning }`
+- Includes: `{% include script-file.html ... %}`
+- Separadores `---`
 
-1. Acesse `/admin`
-2. Faça login
-3. Clique em "Posts" → "New Posts"
-4. Preencha os campos:
-   - **Título:** Título do post
-   - **Data:** Data de publicação
-   - **Categorias:** Lista de categorias (ex: Power BI, Scripts)
-   - **Tags:** Lista de tags (ex: dax, powerbi)
-   - **Imagem de Capa:** URL da imagem (opcional)
-   - **Conteúdo:** Escreva em Markdown
-5. Clique em "Publish" para publicar imediatamente
-   - Ou "Save" para salvar como rascunho
+O modo visual (rich text) pode reescrever essa sintaxe. Troque de modo pelo seletor na barra de ferramentas.
 
-### Upload de Imagens
+## 🔗 Nomes de Arquivo e URLs
 
-- Ao inserir imagens no conteúdo, você pode:
-  1. Clicar no ícone de imagem no editor
-  2. Fazer upload de uma imagem local
-  3. A imagem será salva automaticamente em `/assets/images/posts/`
-  4. O caminho correto será inserido no Markdown
-
-### Editar Posts Existentes
-
-1. Acesse `/admin`
-2. Clique em "Posts"
-3. Selecione o post que deseja editar
-4. Faça as alterações
-5. Clique em "Publish"
+- Slugs são gerados só em ASCII: "Introdução ao Git" → `2026-10-18-introducao-ao-git.md`
+- O prefixo de data vem do campo **Data de Publicação**
+- Imagens enviadas também têm o nome normalizado e ficam em `assets/images/posts/` (limite de 500 KB)
 
 ## 📁 Estrutura de Arquivos
 
 ```
 admin/
-├── index.html      # Página principal do CMS
-├── config.yml      # Configurações do Decap CMS
-└── README.md       # Este arquivo
+├── index.html         # Carrega o Sveltia CMS (versão fixa)
+├── config.yml         # Configuração do CMS
+├── README.md          # Este arquivo
+└── GUIA-COMPLETO.md   # Guia histórico da implantação com Decap CMS
 ```
 
-## ⚙️ Configuração
+## ⬆️ Atualizar o Sveltia CMS
 
-O arquivo [`config.yml`](config.yml) contém:
+O Sveltia ainda está em beta (0.x) e lança versões com frequência. Para atualizar:
 
-- **Backend:** Configuração do GitHub
-- **Media Folder:** Onde as imagens são salvas (`/assets/images/posts/`)
-- **Collections:** Tipos de conteúdo (Posts e Páginas)
-- **Fields:** Campos disponíveis para cada tipo
-
-## 🔧 Customização
-
-Para adicionar novos campos aos posts, edite o arquivo [`config.yml`](config.yml) na seção `collections → posts → fields`.
-
-## 📱 Mobile
-
-O Decap CMS é responsivo e funciona perfeitamente em dispositivos móveis. Basta acessar `/admin` pelo navegador do celular.
+1. Veja as versões em https://www.npmjs.com/package/@sveltia/cms?activeTab=versions
+2. Troque o número em `admin/index.html`
+3. Teste localmente (`bundle exec jekyll serve` e abra `http://localhost:4000/admin/`) antes de publicar
 
 ## 🆘 Problemas Comuns
 
-### Erro de Autenticação
+- **Erro de autenticação:** confira se o Worker está no ar e se o callback do OAuth App é `https://decap-oauth.fernandolozer.workers.dev/callback`.
+- **Post não aparece no site:** verifique se o PR foi publicado (merge na `main`) e se `published` está marcado.
+- **Formatação quebrada:** edite o post no modo Markdown.
 
-- Verifique se o OAuth está configurado corretamente
-- Certifique-se de estar usando a URL correta de callback
+## 📚 Documentação
 
-### Imagens não aparecem
-
-- Verifique se a pasta `/assets/images/posts/` existe
-- Confirme que o caminho no `config.yml` está correto
-
-### Post não foi salvo
-
-- Verifique se você tem permissões de escrita no repositório
-- Confirme se a branch configurada está correta
-
-## 📚 Documentação Oficial
-
-- [Decap CMS](https://decapcms.org/)
-- [Jekyll Integration](https://decapcms.org/docs/jekyll/)
-- [GitHub Backend](https://decapcms.org/docs/github-backend/)
+- [Sveltia CMS](https://sveltiacms.app/en/docs)
+- [Integração com Jekyll](https://sveltiacms.app/en/docs/frameworks/jekyll)
+- [Editorial Workflow](https://sveltiacms.app/en/docs/workflows/editorial)
+- [Migração do Decap CMS](https://sveltiacms.app/en/docs/migration/netlify-decap-cms)

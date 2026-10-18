@@ -1,3 +1,5 @@
+# Configuração do Sveltia CMS › https://sveltiacms.app/en/docs
+
 backend:
   name: github
   repo: flozer/flozer.github.io
@@ -5,30 +7,47 @@ backend:
   base_url: https://decap-oauth.fernandolozer.workers.dev
   auth_endpoint: /auth
 
+# Fluxo editorial: cada post novo ou editado vira uma branch + pull request
+# (Rascunho → Em revisão → Pronto). Só vai para a main (e para o site) ao publicar.
+publish_mode: editorial_workflow
+
 # Configuração de mídia (imagens)
 media_folder: "assets/images/posts"
 public_folder: "/assets/images/posts"
 
-# Configuração de publicação (desabilitado para publicação direta)
-# publish_mode: editorial_workflow
+media_libraries:
+  default:
+    config:
+      max_file_size: 512000 # 500 KB
+      slugify_filename: true # nomes de arquivo sem espaços/acentos
 
-# Configuração de locale
-locale: pt
+# Slugs (nomes de arquivo e URLs) só com ASCII: "Introdução ao Git" → "introducao-ao-git"
+slug:
+  encoding: ascii
+  clean_accents: true
+  timezone: local
+
+# Não grava campos opcionais vazios (ex.: "image: {path: ''}" quebraria o card na home do Chirpy)
+output:
+  omit_empty_optional_fields: true
 
 # Collections (tipos de conteúdo)
 collections:
   # Posts do blog
   - name: "posts"
     label: "Posts"
+    label_singular: "Post"
     folder: "_posts"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    # O Jekyll exige o prefixo AAAA-MM-DD no nome do arquivo
+    slug: "{{date | date('YYYY-MM-DD')}}-{{slug}}"
+    summary: "{{title}} — {{date | date('DD/MM/YYYY')}}"
+    sortable_fields: ["date", "title"]
     editor:
       preview: true
     fields:
       # ===== METADADOS PRINCIPAIS =====
-      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
-
+      # (layout: post já vem dos defaults do _config.yml)
       - label: "Título"
         name: "title"
         widget: "string"
@@ -37,6 +56,7 @@ collections:
       - label: "Data de Publicação"
         name: "date"
         widget: "datetime"
+        default: "{{now}}"
         format: "YYYY-MM-DD HH:mm:ss ZZ"
         date_format: "DD/MM/YYYY"
         time_format: "HH:mm"
@@ -45,52 +65,15 @@ collections:
       # ===== CATEGORIZAÇÃO =====
       - label: "Categorias"
         name: "categories"
-        widget: "select"
-        multiple: true
+        widget: "list"
         required: false
-        create: true
-        options:
-          - "Power BI"
-          - "DAX"
-          - "Scripts"
-          - "Tutoriais"
-          - "Análise de Dados"
-          - "IA"
-          - "Tecnologia"
-          - "Otimização"
-          - "Boas Práticas"
-        hint: "Escolha categorias do dropdown ou digite uma nova e pressione Enter"
+        hint: "Uma por linha (Enter adiciona outra). Ex.: Power BI, DAX, Scripts, Tutoriais, Git, IA"
 
       - label: "Tags"
         name: "tags"
-        widget: "select"
-        multiple: true
+        widget: "list"
         required: false
-        create: true
-        options:
-          - "dax"
-          - "powerbi"
-          - "scripts"
-          - "tutorial"
-          - "dax-studio"
-          - "otimizacao"
-          - "python"
-          - "excel"
-          - "power-query"
-          - "introducao"
-          - "intermediario"
-          - "avancado"
-          - "produtividade"
-          - "atalhos"
-          - "ia"
-          - "machine-learning"
-          - "data-science"
-          - "git"
-          - "github"
-          - "markdown"
-          - "seo"
-          - "ci-cd"
-        hint: "Escolha tags do dropdown ou digite uma nova (minúsculas, com hífen) e pressione Enter"
+        hint: "Minúsculas, com hífen, sem barra. Ex.: dax, powerbi, power-query, git, ci-cd"
 
       # ===== IMAGEM E SEO =====
       - label: "Imagem de Capa"
@@ -103,10 +86,7 @@ collections:
             name: "path"
             widget: "image"
             required: false
-            hint: "Faça upload de uma imagem ou cole URL do Unsplash"
-            media_library:
-              config:
-                max_file_size: 512000
+            hint: "Faça upload de uma imagem (até 500 KB) ou cole uma URL"
           - label: "Texto Alternativo"
             name: "alt"
             widget: "string"
@@ -118,7 +98,7 @@ collections:
         widget: "text"
         required: false
         hint: "Resumo do post para motores de busca (150-160 caracteres ideais)"
-        pattern: ['.{0,160}', "Máximo de 160 caracteres"]
+        pattern: ['^.{0,160}$', "Máximo de 160 caracteres"]
 
       - label: "Fixar no Topo?"
         name: "pin"
@@ -127,28 +107,20 @@ collections:
         required: false
         hint: "Fixa o post no topo da página inicial"
 
-      - label: "Publicar Post?"
+      - label: "Publicado no site?"
         name: "published"
         widget: "boolean"
-        default: false
-        required: true
-        hint: "Marque para publicar no blog. Desmarque para manter como rascunho (não aparecerá no site)"
+        default: true
+        required: false
+        hint: "Rascunhos ficam no fluxo editorial. Desmarque só para tirar do ar um post já publicado"
 
       # ===== CONTEÚDO =====
       - label: "Conteúdo"
         name: "body"
         widget: "markdown"
-        hint: "Use Markdown para formatar o conteúdo"
-        buttons:
-          - bold
-          - italic
-          - code
-          - link
-          - heading-two
-          - heading-three
-          - quote
-          - bulleted-list
-          - numbered-list
+        # Markdown puro por padrão: preserva a sintaxe do Chirpy ({: .prompt-tip }, {% include %}, ---)
+        modes: ["raw", "rich_text"]
+        hint: "Modo Markdown preserva {: .prompt-tip } e {% include %}. Evite o modo visual em posts que usam essa sintaxe"
 
   # Páginas estáticas
   - name: "pages"
@@ -158,8 +130,7 @@ collections:
         name: "about"
         file: "_tabs/about.md"
         fields:
-          - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
           - { label: "Ícone", name: "icon", widget: "string", default: "fas fa-info-circle" }
           - { label: "Ordem", name: "order", widget: "number", default: 4 }
-          - { label: "Título", name: "title", widget: "string" }
-          - { label: "Conteúdo", name: "body", widget: "markdown" }
+          - { label: "Título", name: "title", widget: "string", required: false }
+          - { label: "Conteúdo", name: "body", widget: "markdown", modes: ["raw", "rich_text"] }
